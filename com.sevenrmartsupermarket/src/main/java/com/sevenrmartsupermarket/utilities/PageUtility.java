@@ -27,7 +27,7 @@ public class PageUtility {
 
 	public void select_ByVisibleText(WebElement element, String text) {
 		Select select = new Select(element);
-		select.selectByValue(text);
+		select.selectByVisibleText(text);
 	}
 
 	public boolean is_Selected(WebElement element) {

@@ -25,24 +25,39 @@ public class HomePage {
 	private WebElement pushnotificationelement;
 	@FindBy(xpath = "//div[@class='col-lg-3 col-6']")
 	private List <WebElement> dashboardelements;
+	@FindBy(xpath = "//div[@class='row']//div[2]//a")
+	private  WebElement adminuserstileelement;
+	@FindBy(xpath = "(//a[@class='nav-link'])[2]")
+	private  WebElement adminRightCornerLogo;
+	@FindBy(xpath = "(//a[@class='dropdown-item'])[2]")
+	private  WebElement logoutButton;
+	@FindBy(xpath = "//ul//li[3]")
+	private  WebElement manageProductElement;
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	public void clickOnManageProduct() {
+		manageProductElement.click();
+	}
+	public void logout() {
+		adminRightCornerLogo.click();
+		logoutButton.click();
+	}
 	public void clickOnPushNotification() {
 		pushnotificationelement.click();
+	}
+	public void clickOnAdminUserTile() {
+		adminuserstileelement.click();
 	}
 	public String getProfilename() {
 	return profileName.getText();	
 	}
 	
 	public int graphicElementsSize() {
-		generalUtility=new GeneralUtility();
-		List<String> items = new ArrayList<String>();
-		items=generalUtility.getTextofElements(dashboardelements);
-		int a=items.size();
-		return a;
+		int b=dashboardelements.size();
+		return b;
 	
 	}
 }

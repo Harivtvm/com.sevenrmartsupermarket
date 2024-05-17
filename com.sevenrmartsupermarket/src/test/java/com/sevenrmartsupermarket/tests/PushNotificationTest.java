@@ -22,7 +22,10 @@ public class PushNotificationTest extends Base{
 		homepage=new HomePage(driver);
 		homepage.clickOnPushNotification();
 		pushnotificationpage=new PushNotificationPage(driver);
-		pushnotificationpage.sendNotification("its a title", "its a description");
+		excelread.setExcelFile("PushNotificationData", "Notifications"); //workbookname, sheetName
+		String title = excelread.getCellData(1, 0);
+		String description = excelread.getCellData(1, 1);
+		pushnotificationpage.sendNotification(title,description);
 		boolean displayed=pushnotificationpage.alert_PushCloseButtonDisplayed();
 		Assert.assertTrue(displayed);
 	}

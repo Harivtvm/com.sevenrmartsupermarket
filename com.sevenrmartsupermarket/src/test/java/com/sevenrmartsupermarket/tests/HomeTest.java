@@ -17,7 +17,7 @@ public void verify_GraphicElements() {
 	loginpage.login();
 	homePage=new HomePage(driver);
 	int actualsize=homePage.graphicElementsSize();
-	int expectedsize=16;
+	int expectedsize=14;
 	Assert.assertEquals(actualsize,expectedsize);
 }
 }

@@ -33,9 +33,9 @@ public void verifyValidUserLogin() {
 @Test
 public void verifyInvalidUserLogin() {
 loginPage=new LoginPage(driver);
-System.out.println(GeneralUtility.getRandomFullname());
+String a=GeneralUtility.getRandomFullname();
 
-	loginPage.login("hhh","kkkk");
+	loginPage.login(a,"kkkk");
 	boolean expected=loginPage.getErrorMessageAlert();
 	Assert.assertTrue(expected);
 	

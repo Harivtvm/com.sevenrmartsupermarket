@@ -13,6 +13,7 @@ import com.sevenrmartsupermarket.utilities.PageUtility;
 public class PushNotificationPage {
 	WebDriver driver;
 	PageUtility pageutility;
+	
 	@FindBy(xpath = "//input[@class='form-control'][1]")
 	private WebElement titlelement;
 	@FindBy(xpath = "//input[@class='form-control'][2]")
