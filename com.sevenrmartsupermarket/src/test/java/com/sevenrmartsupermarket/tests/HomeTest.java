@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
+import com.sevenrmartsupermarket.utilities.ScreenShotCapture;
 
 public class HomeTest extends Base {
 	LoginPage loginpage;
@@ -13,11 +14,13 @@ public class HomeTest extends Base {
 	
 	@Test
 public void verify_GraphicElements() {
+		//ScreenShotCapture screenShotCapture=new ScreenShotCapture();
 	loginpage=new LoginPage(driver);
 	loginpage.login();
 	homePage=new HomePage(driver);
 	int actualsize=homePage.graphicElementsSize();
 	int expectedsize=14;
 	Assert.assertEquals(actualsize,expectedsize);
+	//screenShotCapture.takeScreenshot(driver, "hari");
 }
 }

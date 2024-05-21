@@ -22,41 +22,52 @@ public class HomePage {
 	@FindBy(xpath = "//a[@class='d-block']")
 	private WebElement profileName;
 	@FindBy(xpath = "//ul//li[6]")
-	private WebElement pushnotificationelement;
+	private WebElement pushNotificationElement;
 	@FindBy(xpath = "//div[@class='col-lg-3 col-6']")
-	private List <WebElement> dashboardelements;
+	private List <WebElement> dashboardElements;
 	@FindBy(xpath = "//div[@class='row']//div[2]//a")
-	private  WebElement adminuserstileelement;
+	private  WebElement adminUsersTileElement;
 	@FindBy(xpath = "(//a[@class='nav-link'])[2]")
 	private  WebElement adminRightCornerLogo;
 	@FindBy(xpath = "(//a[@class='dropdown-item'])[2]")
 	private  WebElement logoutButton;
 	@FindBy(xpath = "//ul//li[3]")
 	private  WebElement manageProductElement;
+	@FindBy(xpath="//a//p[contains(text(),'Manage Orders')]")
+	private WebElement manageOrderElement;
+	@FindBy(xpath="//a//p[contains(text(),'Manage Location')]")
+	private WebElement manageLocationElement;
+	
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+public void clickOnManageLocation() {
+	manageLocationElement.click();	
+	}
 	public void clickOnManageProduct() {
 		manageProductElement.click();
+	}
+	public void clickOnManageOrder() {
+		manageOrderElement.click();
 	}
 	public void logout() {
 		adminRightCornerLogo.click();
 		logoutButton.click();
 	}
 	public void clickOnPushNotification() {
-		pushnotificationelement.click();
+		pushNotificationElement.click();
 	}
 	public void clickOnAdminUserTile() {
-		adminuserstileelement.click();
+		adminUsersTileElement.click();
 	}
 	public String getProfilename() {
 	return profileName.getText();	
 	}
 	
 	public int graphicElementsSize() {
-		int b=dashboardelements.size();
+		int b=dashboardElements.size();
 		return b;
 	
 	}

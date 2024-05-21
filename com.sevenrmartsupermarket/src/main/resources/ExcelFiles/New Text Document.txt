@@ -1,0 +1,5 @@
+@BeforeMethod
+	public void launchBrowser() {
+		String browser=properties.getProperty("browser");
+		String url=properties.getProperty("url");
+		initialize(browser,url);

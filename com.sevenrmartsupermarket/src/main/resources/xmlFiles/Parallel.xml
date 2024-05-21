@@ -1,0 +1,15 @@
+<suite name="parallelExecution" parallel="tests">
+	<listeners>
+		<listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	<test name="loginFeature">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
+		</classes>
+	</test>
+	<test name="loginnew">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.ProductTest"></class>
+		</classes>
+	</test>
+</suite>

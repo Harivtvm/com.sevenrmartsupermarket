@@ -3,17 +3,22 @@ package com.sevenrmartsupermarket.pages;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.sevenrmartsupermarket.constants.Constants;
+import com.sevenrmartsupermarket.utilities.PageUtility;
+import com.sevenrmartsupermarket.utilities.WaitUtility;
 
 public class LoginPage {
 	WebDriver driver;
 	HomePage homepage;
+	PageUtility pageUtility;
 	Properties properties = new Properties();
+	WaitUtility waitUtility;
 	
 
 	@FindBy(xpath = "(//input[@class='form-control'])[1]")
@@ -28,6 +33,9 @@ public class LoginPage {
 	WebElement loginHeaderlogo;
 	@FindBy(xpath = "//label[@for='remember']")
 	WebElement rememberme;
+	@FindBy(xpath = "//input[@id='remember']")
+	WebElement remembermeCheckbox;
+	By homePageWaitElement=By.xpath("//a[@class='d-block']");
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -54,12 +62,19 @@ public class LoginPage {
 		signinButton.click();
 	}
 
+	public boolean checkboxIsEnabled() {
+		pageUtility=new PageUtility(driver);
+		return pageUtility.is_Enabled(remembermeCheckbox);
+	}
 	public void login() {
+		waitUtility=new WaitUtility(driver);
 		String username = properties.getProperty("userName");
 		String password = properties.getProperty("password");
 		enterUserName(username);
 		enterPassword(password);
 		clickonSigninButton();
+		waitUtility.waitForElementToBeVisible(homePageWaitElement, 20);
+		
 	}
 
 	public void login(String userName, String password) {

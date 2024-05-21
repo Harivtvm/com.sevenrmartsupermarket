@@ -10,19 +10,19 @@ import com.sevenrmartsupermarket.pages.ManageProductPage;
 
 public class ManageProductTest extends Base{
 	
-	LoginPage loginpage;
-	HomePage homepage;
-	ManageProductPage manageProductpage;
+	LoginPage loginPage;
+	HomePage homePage;
+	ManageProductPage manageProductPage;
 	
 	@Test
-	public void verifyProductNumbers() throws InterruptedException {
-		loginpage=new LoginPage(driver);
-		loginpage.login();
-		homepage=new HomePage(driver);
-		homepage.clickOnManageProduct();
-		manageProductpage=new ManageProductPage(driver);
-		String expected=(manageProductpage.getTextOfListHeader());
-		int act=manageProductpage.getAllProductCount();
+	public void verifyProductNumbers() {
+		loginPage=new LoginPage(driver);
+		loginPage.login();
+		homePage=new HomePage(driver);
+		homePage.clickOnManageProduct();
+		manageProductPage=new ManageProductPage(driver);
+		String expected=(manageProductPage.getTextOfListHeader());
+		int act=manageProductPage.getAllProductCount();
 		String actual=String.valueOf(act);
 		boolean result=expected.contains(actual);
 		System.out.println(result);

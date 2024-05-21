@@ -14,8 +14,8 @@ import com.sevenrmartsupermarket.utilities.PageUtility;
 
 public class AdminUsersPage {
 	WebDriver driver;
-	PageUtility pageutility;
-	GeneralUtility generaltility = new GeneralUtility();
+	PageUtility pageUtility;
+	GeneralUtility generalUtility = new GeneralUtility();
 
 	@FindBy(xpath = "//input[@id='username']")
 	private WebElement userNameField;
@@ -37,7 +37,7 @@ public class AdminUsersPage {
 	private WebElement searchUsernameField;
 	@FindBy(xpath = "//button[@name='Search']")
 	private WebElement searchButtonSecondary;
-	//table//tr[13]//td[5]
+
 
 	public AdminUsersPage(WebDriver driver) {
 		this.driver = driver;
@@ -45,23 +45,23 @@ public class AdminUsersPage {
 	}
 	public boolean userInList(String name) {
 		
-		List<String> namelist=new ArrayList<String>();
-		namelist=generaltility.getTextofElements(usertablenamelist);
-		boolean a=namelist.contains(name);
-		System.out.println(namelist);
+		List<String> nameList=new ArrayList<String>();
+		nameList=generalUtility.getTextofElements(usertablenamelist);
+		boolean a=nameList.contains(name);
+		System.out.println(nameList);
 		return a;
 	}
 	
 public String getTextAlertMessage() {
-	String a=alertMessageUserCreation.getText();
-	return a;
+	String text=alertMessageUserCreation.getText();
+	return text;
 }
 	public void newButtonClick() {
 		newButtonElement.click();
 	}
 
-	public void enterUserName(String username) {
-		userNameField.sendKeys(username);
+	public void enterUserName(String userName) {
+		userNameField.sendKeys(userName);
 	}
 
 	public void enterPassword(String password) {
@@ -69,33 +69,31 @@ public String getTextAlertMessage() {
 	}
 
 	public void selectUserType(String text) {
-		
-		pageutility.select_ByVisibleText(userTypeDropdown, text);
+		pageUtility=new PageUtility(driver);
+		pageUtility.select_ByVisibleText(userTypeDropdown, text);
 	}
 	public void deactivateUser(String name) {
-		pageutility=new PageUtility(driver);
-		List<String> namelist=new ArrayList<String>();
-		int a=usertablenamelist.size();
-		namelist=generaltility.getTextofElements(usertablenamelist);
-		//System.out.println(namelist);
+		pageUtility=new PageUtility(driver);
+		List<String> nameList=new ArrayList<String>();
+		nameList=generalUtility.getTextofElements(usertablenamelist);
 		int index=0;
-		for(index=0;index<namelist.size();index++)
+		for(index=0;index<nameList.size();index++)
 		{
-			if(namelist.get(index).equals(name)) {
+			if(nameList.get(index).equals(name)) {
 				index++;
 				break;
 			}
 		}
 		WebElement deactivateButton=driver.findElement(By.xpath("//table//tr["+index+"]//td[5]//a[1]"));	
-		pageutility.scrollAndClick(deactivateButton);
+		pageUtility.scrollAndClick(deactivateButton);
 
 		
 		
 	}
-	public void saveUser(String username,String password,String usertype) {
-		enterUserName(username);
+	public void saveUser(String userName,String password,String userType) {
+		enterUserName(userName);
 		enterPassword(password);
-		selectUserType(usertype);
+		selectUserType(userType);
 		saveButtonElement.click();
 		
 	}

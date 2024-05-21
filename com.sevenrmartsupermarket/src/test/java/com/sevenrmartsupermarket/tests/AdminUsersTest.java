@@ -12,71 +12,71 @@ import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
 public class AdminUsersTest extends Base {
 
-	LoginPage loginpage;
-	HomePage homepage;
-	AdminUsersPage adminuserspage;
-	ExcelReader excelread = new ExcelReader();
-	GeneralUtility generaltility = new GeneralUtility();
+	LoginPage loginPage;
+	HomePage homePage;
+	AdminUsersPage adminUsersPage;
+	ExcelReader excelRead = new ExcelReader();
+	GeneralUtility generalUtility = new GeneralUtility();
 
-	@Test
+	@Test(priority = 4)
 	public void verifyNewUserCreation() {
-		loginpage = new LoginPage(driver);
-		loginpage.login();
-		homepage = new HomePage(driver);
-		homepage.clickOnAdminUserTile();
-		adminuserspage = new AdminUsersPage(driver);
-		adminuserspage.newButtonClick();
-		excelread.setExcelFile("UserCreationData", "UserData");
-		String username = excelread.getCellData(1, 0);
+		loginPage = new LoginPage(driver);
+		loginPage.login();
+		homePage = new HomePage(driver);
+		homePage.clickOnAdminUserTile();
+		adminUsersPage = new AdminUsersPage(driver);
+		adminUsersPage.newButtonClick();
+		excelRead.setExcelFile("UserCreationData", "UserData");
+		String username = excelRead.getCellData(1, 0);
 		username=username+GeneralUtility.getRandomFullname();
-		String password = excelread.getCellData(1, 1);
-		String usertype = excelread.getCellData(1, 2);
+		String password = excelRead.getCellData(1, 1);
+		String usertype = excelRead.getCellData(1, 2);
 		//String fname = GeneralUtility.getRandomFullname();
 		//adminuserspage.saveUser(fname, fname, usertype);                //using faker
-		adminuserspage.saveUser(username, password, usertype);       //using excelread
+		adminUsersPage.saveUser(username, password, usertype);       //using excelread
 		// adminuserspage.saveUser("hari123455", "pass", "Partner");     //using parametrised method
-		String actual = adminuserspage.getTextAlertMessage();
+		String actual = adminUsersPage.getTextAlertMessage();
 		String expected = "User Created Successfully";
 		Boolean result = actual.contains(expected);
 		Assert.assertTrue(result);
 	}
-	@Test
+	@Test(priority=1)
 	public void verifyNewUserSearch() {
-		loginpage = new LoginPage(driver);
-		loginpage.login();
-		homepage = new HomePage(driver);
-		homepage.clickOnAdminUserTile();
-		adminuserspage = new AdminUsersPage(driver);
-		adminuserspage.newButtonClick();
+		loginPage = new LoginPage(driver);
+		loginPage.login();
+		homePage = new HomePage(driver);
+		homePage.clickOnAdminUserTile();
+		adminUsersPage = new AdminUsersPage(driver);
+		adminUsersPage.newButtonClick();
 		String fname = GeneralUtility.getRandomFullname();
-		adminuserspage.saveUser(fname, fname,"Admin");
-		boolean actual=adminuserspage.userInList(fname);
+		adminUsersPage.saveUser(fname, fname,"Admin");
+		boolean actual=adminUsersPage.userInList(fname);
 		Assert.assertTrue(actual);
 		
 	}
-	@Test
+	@Test(priority=2)
 	public void verifyNewUserLogin() {
-		loginpage = new LoginPage(driver);
-		loginpage.login();
-		homepage = new HomePage(driver);
-		homepage.clickOnAdminUserTile();
-		adminuserspage = new AdminUsersPage(driver);
-		adminuserspage.newButtonClick();
+		loginPage = new LoginPage(driver);
+		loginPage.login();
+		homePage = new HomePage(driver);
+		homePage.clickOnAdminUserTile();
+		adminUsersPage = new AdminUsersPage(driver);
+		adminUsersPage.newButtonClick();
 		String fname = GeneralUtility.getRandomFullname();
-		adminuserspage.saveUser(fname, fname,"Admin");
-		homepage.logout();
-		loginpage.login(fname,fname);
-	String actual=homepage.getProfilename();
+		adminUsersPage.saveUser(fname, fname,"Admin");
+		homePage.logout();
+		loginPage.login(fname,fname);
+	String actual=homePage.getProfilename();
 	Assert.assertEquals(actual, fname);
 	}
-	@Test
+	@Test(priority=3)
 	public void verifyDeactivationFunctionality() {
-		loginpage = new LoginPage(driver);
-		loginpage.login();
-		homepage = new HomePage(driver);
-		homepage.clickOnAdminUserTile();
-		adminuserspage = new AdminUsersPage(driver);
-		adminuserspage.deactivateUser("Romy20240517_13072523062.864756916217");
+		loginPage = new LoginPage(driver);
+		loginPage.login();
+		homePage = new HomePage(driver);
+		homePage.clickOnAdminUserTile();
+		adminUsersPage = new AdminUsersPage(driver);
+		adminUsersPage.deactivateUser("Theron Mante");
 		
 		
 	}

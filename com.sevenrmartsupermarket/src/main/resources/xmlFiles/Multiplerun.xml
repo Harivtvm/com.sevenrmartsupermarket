@@ -1,0 +1,35 @@
+<suite name="multipleRun" thread-count="3" parallel="tests">
+	<test name="smoke">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.LoginTest">
+				<methods>
+					<include name="verifyLogin"></include>
+					<include name="verifyInvalidUserLogin"></include>
+				</methods>
+			</class>
+			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
+			<methods>
+				<include name="verify_GraphicElements"></include>
+			</methods>
+		</classes>
+	</test>
+	<test name="sanity">
+		<classes>
+			
+			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
+			<methods>
+				<include name="verifyNewUserCreation"></include>
+				<include name="verifyNewUserLogin"></include>
+				<include name="verifyDeactivationFunctionality"></include>
+			</methods>
+		</classes>
+	</test>
+	<test name="regression">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.ManageOrdersTest"></class>
+			<methods>
+				<exclude name="verifyOrderSearch"></exclude>
+			</methods>
+		</classes>
+	</test>
+</suite>
