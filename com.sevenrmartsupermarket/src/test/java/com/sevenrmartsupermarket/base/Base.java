@@ -60,17 +60,18 @@ public class Base {
 		String url = properties.getProperty("url");
 		initialize(browser, url);
 	}
-	@BeforeMethod(enabled=true)
+	@BeforeMethod(enabled=true,alwaysRun = true)
 	public void launchBrowser() {
 		String browser=properties.getProperty("browser");
 		String url=properties.getProperty("url");
 		initialize(browser,url);
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void terminateBrowser(ITestResult itestresult) {
 		if (itestresult.getStatus() == ITestResult.FAILURE) {
 			screenShotCapture.takeScreenshot(driver, itestresult.getName()); // return testmethodname
 		}
+		driver.close();
 	}
 }

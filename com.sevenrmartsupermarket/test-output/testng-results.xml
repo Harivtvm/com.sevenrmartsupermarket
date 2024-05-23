@@ -1,55 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-21T21:42:35 IST" name="parallelExecution" finished-at="2024-05-21T21:42:50 IST" duration-ms="15156">
+  <suite started-at="2024-05-23T17:02:16 IST" name="parallelExecution" finished-at="2024-05-23T17:02:56 IST" duration-ms="39545">
     <groups>
+      <group name="smoke">
+        <method signature="LoginTest.verifyInvalidUserLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" name="verifyInvalidUserLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyLogoText()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" name="verifyLogoText" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyRemembermeCheckboxEnabled()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" name="verifyRemembermeCheckboxEnabled" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyRemembermeText()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" name="verifyRemembermeText" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+      </group> <!-- smoke -->
+      <group name="sanity">
+        <method signature="LoginTest.verifyRemembermeCheckboxEnabled()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" name="verifyRemembermeCheckboxEnabled" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+        <method signature="LoginTest.verifyRemembermeText()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" name="verifyRemembermeText" class="com.sevenrmartsupermarket.tests.LoginTest"/>
+      </group> <!-- sanity -->
     </groups>
-    <test started-at="2024-05-21T21:42:35 IST" name="loginFeature" finished-at="2024-05-21T21:42:50 IST" duration-ms="15156">
-      <class name="com.sevenrmartsupermarket.tests.HomeTest">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@139982de]" started-at="2024-05-21T21:42:35 IST" name="launchBrowser" finished-at="2024-05-21T21:42:48 IST" duration-ms="13054" status="PASS">
+    <test started-at="2024-05-23T17:02:16 IST" name="loginFeature" finished-at="2024-05-23T17:02:56 IST" duration-ms="39545">
+      <class name="com.sevenrmartsupermarket.tests.LoginTest">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:16 IST" name="launchBrowser" finished-at="2024-05-23T17:02:27 IST" duration-ms="11167" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="verify_GraphicElements()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@139982de]" started-at="2024-05-21T21:42:48 IST" name="verify_GraphicElements" finished-at="2024-05-21T21:42:50 IST" duration-ms="1990" status="PASS">
+        <test-method signature="verifyInvalidUserLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:27 IST" name="verifyInvalidUserLogin" finished-at="2024-05-23T17:02:31 IST" duration-ms="3324" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_GraphicElements -->
-        <test-method is-config="true" signature="terminateBrowser(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@139982de]" started-at="2024-05-21T21:42:50 IST" name="terminateBrowser" finished-at="2024-05-21T21:42:50 IST" duration-ms="2" status="PASS">
+        </test-method> <!-- verifyInvalidUserLogin -->
+        <test-method is-config="true" signature="terminateBrowser(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:31 IST" name="terminateBrowser" finished-at="2024-05-23T17:02:31 IST" duration-ms="438" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verify_GraphicElements status=SUCCESS method=HomeTest.verify_GraphicElements()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@139982de] output={null}]]]>
+                <![CDATA[[TestResult name=verifyInvalidUserLogin status=SUCCESS method=LoginTest.verifyInvalidUserLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- terminateBrowser -->
-      </class> <!-- com.sevenrmartsupermarket.tests.HomeTest -->
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:31 IST" name="launchBrowser" finished-at="2024-05-23T17:02:38 IST" duration-ms="7369" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="verifyLogoText()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:38 IST" name="verifyLogoText" finished-at="2024-05-23T17:02:39 IST" duration-ms="103" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogoText -->
+        <test-method is-config="true" signature="terminateBrowser(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:39 IST" name="terminateBrowser" finished-at="2024-05-23T17:02:39 IST" duration-ms="270" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyLogoText status=SUCCESS method=LoginTest.verifyLogoText()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateBrowser -->
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:39 IST" name="launchBrowser" finished-at="2024-05-23T17:02:46 IST" duration-ms="6994" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="verifyRemembermeCheckboxEnabled()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:46 IST" name="verifyRemembermeCheckboxEnabled" finished-at="2024-05-23T17:02:46 IST" duration-ms="88" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRemembermeCheckboxEnabled -->
+        <test-method is-config="true" signature="terminateBrowser(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:46 IST" name="terminateBrowser" finished-at="2024-05-23T17:02:47 IST" duration-ms="858" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyRemembermeCheckboxEnabled status=SUCCESS method=LoginTest.verifyRemembermeCheckboxEnabled()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateBrowser -->
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:47 IST" name="launchBrowser" finished-at="2024-05-23T17:02:55 IST" duration-ms="8158" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="verifyRemembermeText()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:55 IST" name="verifyRemembermeText" finished-at="2024-05-23T17:02:55 IST" duration-ms="155" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRemembermeText -->
+        <test-method is-config="true" signature="terminateBrowser(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8]" started-at="2024-05-23T17:02:55 IST" name="terminateBrowser" finished-at="2024-05-23T17:02:56 IST" duration-ms="449" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyRemembermeText status=SUCCESS method=LoginTest.verifyRemembermeText()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@3c9754d8] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateBrowser -->
+      </class> <!-- com.sevenrmartsupermarket.tests.LoginTest -->
     </test> <!-- loginFeature -->
-    <test started-at="2024-05-21T21:42:35 IST" name="loginnew" finished-at="2024-05-21T21:42:50 IST" duration-ms="15048">
-      <class name="com.sevenrmartsupermarket.tests.HomeTest">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@5fbe4146]" started-at="2024-05-21T21:42:36 IST" name="launchBrowser" finished-at="2024-05-21T21:42:47 IST" duration-ms="10941" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method signature="verify_GraphicElements()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@5fbe4146]" started-at="2024-05-21T21:42:47 IST" name="verify_GraphicElements" finished-at="2024-05-21T21:42:50 IST" duration-ms="3218" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_GraphicElements -->
-        <test-method is-config="true" signature="terminateBrowser(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@5fbe4146]" started-at="2024-05-21T21:42:50 IST" name="terminateBrowser" finished-at="2024-05-21T21:42:50 IST" duration-ms="8" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verify_GraphicElements status=SUCCESS method=HomeTest.verify_GraphicElements()[pri:0, instance:com.sevenrmartsupermarket.tests.HomeTest@5fbe4146] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- terminateBrowser -->
-      </class> <!-- com.sevenrmartsupermarket.tests.HomeTest -->
-    </test> <!-- loginnew -->
   </suite> <!-- parallelExecution -->
 </testng-results>

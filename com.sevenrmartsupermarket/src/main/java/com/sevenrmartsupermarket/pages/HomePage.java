@@ -31,17 +31,25 @@ public class HomePage {
 	private  WebElement adminRightCornerLogo;
 	@FindBy(xpath = "(//a[@class='dropdown-item'])[2]")
 	private  WebElement logoutButton;
-	@FindBy(xpath = "//ul//li[3]")
+	@FindBy(xpath = "//a//p[contains(text(),'Manage Product')]")
 	private  WebElement manageProductElement;
 	@FindBy(xpath="//a//p[contains(text(),'Manage Orders')]")
 	private WebElement manageOrderElement;
 	@FindBy(xpath="//a//p[contains(text(),'Manage Location')]")
 	private WebElement manageLocationElement;
+	@FindBy(xpath="//a//p[contains(text(),'Manage Category')]")
+	private WebElement manageCategoryElement;
+	@FindBy(xpath="(//a//p[contains(text(),'Category')])[2]")
+	private WebElement categoryRadioElement;
 	
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+public void clickOnCategorySelection() {
+	manageCategoryElement.click();	
+	categoryRadioElement.click();
 	}
 public void clickOnManageLocation() {
 	manageLocationElement.click();	

@@ -16,6 +16,8 @@ public class GeneralUtility {
 		return element.getCssValue(value);
 
 	}
+	
+	
 	public List<String> getTextofElements(List<WebElement> elements) {
 		List<String> data = new ArrayList<String>();
 		for (WebElement element : elements) {

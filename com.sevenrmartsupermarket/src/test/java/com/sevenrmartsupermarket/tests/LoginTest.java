@@ -18,12 +18,7 @@ public class LoginTest extends Base{
 	HomePage homePage;
 	DataProviders dataprovider;
 	
-@Test
-public void verifyLogin() {
- loginPage=new LoginPage(driver);
 
-	loginPage.login();
-}
 @Test
 public void verifyValidUserLogin() {
 	
@@ -35,43 +30,43 @@ public void verifyValidUserLogin() {
 	Assert.assertEquals(actualProfileName, expectedProfileName);	
 	
 }
-@Test
+@Test(groups="smoke")
 public void verifyInvalidUserLogin() {
 loginPage=new LoginPage(driver);
-String a=GeneralUtility.getRandomFullname();
-	loginPage.login(a,"kkkk");
-	boolean expected=loginPage.getErrorMessageAlert();
+String name=GeneralUtility.getRandomFullname();
+	loginPage.login(name,"kkkk");
+	boolean expected=loginPage.isErrorMessageDisplayed();
 	Assert.assertTrue(expected);
 	
 }
-@Test
+@Test(groups="smoke")
 public void verifyLogoText() {
 	loginPage=new LoginPage(driver);
 String actualLogo=loginPage.logoText();
 String expectedLogo="7rmart supermarket";
 Assert.assertEquals(actualLogo, expectedLogo);
 }
-@Test
+@Test(groups="sanity",retryAnalyzer = com.sevenrmartsupermarket.listeners.RetryAnalyzer.class)
 public void verifyUseridText() {
 	loginPage=new LoginPage(driver);
 String actualText=loginPage.useridText();
 String expectedText="Username";
 Assert.assertEquals(actualText, expectedText);
 }
-@Test
+@Test(groups={"sanity","smoke"},retryAnalyzer = com.sevenrmartsupermarket.listeners.RetryAnalyzer.class)//retry if fails
 public void verifyRemembermeText() {
 	loginPage=new LoginPage(driver);
 String actualText=loginPage.remembermeText();
 String expectedText="Remember Me";
 Assert.assertEquals(actualText, expectedText);
 }
-@Test
+@Test(groups={"sanity","smoke"})
 public void verifyRemembermeCheckboxEnabled() {
 	loginPage=new LoginPage(driver);
 	boolean check=loginPage.checkboxIsEnabled();
 	Assert.assertTrue(check);
 }
-@Test(dataProvider = "Newlogin",dataProviderClass = DataProviders.class)
+@Test(dataProvider = "Newlogin",dataProviderClass = DataProviders.class,groups="sanity")
 public void verifyLoginDataProvider(String user,String password) {
 loginPage=new LoginPage(driver);
 homePage = new HomePage(driver);

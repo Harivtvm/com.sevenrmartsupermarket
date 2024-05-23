@@ -18,7 +18,7 @@ public class AdminUsersTest extends Base {
 	ExcelReader excelRead = new ExcelReader();
 	GeneralUtility generalUtility = new GeneralUtility();
 
-	@Test(priority = 4)
+	@Test(priority=4)
 	public void verifyNewUserCreation() {
 		loginPage = new LoginPage(driver);
 		loginPage.login();

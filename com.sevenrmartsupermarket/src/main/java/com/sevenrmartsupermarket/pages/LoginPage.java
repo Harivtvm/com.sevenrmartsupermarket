@@ -83,7 +83,7 @@ public class LoginPage {
 		clickonSigninButton();
 	}
 
-	public boolean getErrorMessageAlert() {
+	public boolean isErrorMessageDisplayed() {
 	 boolean closebuttondisplayed=alertCloseButton.isDisplayed();
 	 return  closebuttondisplayed;
 
